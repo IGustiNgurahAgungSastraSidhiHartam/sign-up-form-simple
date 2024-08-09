@@ -16,7 +16,7 @@ body {
   align-items: center;
   max-width: 100vw;
   min-height: 100vh;
-  padding: 0;
+  padding: 0 2em;
 }
 body .container {
   border: 1px solid black;
