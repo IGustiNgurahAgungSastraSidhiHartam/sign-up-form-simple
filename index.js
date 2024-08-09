@@ -11,12 +11,20 @@ const ageValue = document.querySelector("#age-value");
 const fetchSection = document.querySelector(".fetch-section");
 const btnNewData = document.querySelector("#btn-reset");
 const helloMsg = document.querySelector("#hello-msg");
+const symbol = /[!@#$%^&*()_+';<>/';.,1234567890]/;
 
 function formValidation() {
   if (firstNameInput.value.trim() == "") {
     alertFnMsg.classList.remove("text-success");
     alertFnMsg.classList.add("text-danger");
     alertFnMsg.innerText = "please enter your first name !";
+  } else if (
+    !isNaN(firstNameInput.value) /*  ||
+    symbol.test(firstNameInput.value) */
+  ) {
+    alertFnMsg.classList.remove("text-success");
+    alertFnMsg.classList.add("text-danger");
+    alertFnMsg.innerText = "name cannot be a number !";
   } else {
     alertFnMsg.classList.remove("text-danger");
     alertFnMsg.classList.add("text-success");
@@ -26,6 +34,12 @@ function formValidation() {
     alertLnMsg.classList.remove("text-success");
     alertLnMsg.classList.add("text-danger");
     alertLnMsg.innerText = "please enter your last name !";
+  } else if (
+    !isNaN(lastNameInput.value) /* || symbol.test(lastNameInput.value) */
+  ) {
+    alertLnMsg.classList.remove("text-success");
+    alertLnMsg.classList.add("text-danger");
+    alertLnMsg.innerText = "name cannot be a number !";
   } else {
     alertLnMsg.classList.remove("text-danger");
     alertLnMsg.classList.add("text-success");
